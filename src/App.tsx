@@ -1,13 +1,19 @@
-import Header from "./components/Header";
-import Home from "./pages/Home";
-import Footer from "./components/Footer";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout'
+import Home from './pages/Home'
+import Product from './pages/Product'
 
-export default function App() {
+function App() {
   return (
-    <>
-      <Header />
-      <Home />
-      <Footer />
-    </>
-  );
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/product/:id" element={<Product />} />
+        </Routes>
+      </Layout>
+    </Router>
+  )
 }
+
+export default App
